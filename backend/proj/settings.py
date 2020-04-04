@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'autoslug',
     'froala_editor',
+    'rest_framework',
 
     'trips',
     'userprofile',

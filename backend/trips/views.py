@@ -1,3 +1,12 @@
-from django.shortcuts import render
+from rest_framework import viewsets
 
-# Create your views here.
+from .models import Trip
+from .serializers import TripSerializer
+
+
+class TripViewSet(viewsets.ModelViewSet):
+    """
+    A ViewSet for listing or retrieving trips
+    """
+    queryset = Trip.objects.all()
+    serializer_class = TripSerializer
