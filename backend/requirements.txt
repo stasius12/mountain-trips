@@ -1,3 +1,6 @@
 Django
 djangorestframework
 psycopg2
+flake8
+django-autoslug
+django-froala-editor
