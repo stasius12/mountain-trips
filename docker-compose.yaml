@@ -16,3 +16,8 @@ services:
      - "80:80"
     depends_on:
      - db
+  ng:
+    container_name: ng
+    build: frontend
+    ports:
+      - "8000:80"
