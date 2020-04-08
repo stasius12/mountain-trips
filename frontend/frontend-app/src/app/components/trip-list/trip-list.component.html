@@ -1,0 +1,11 @@
+<div *ngFor="let trip of trips$ | async" style="margin: 20px;">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>{{ trip.name }}</mat-card-title>
+            <mat-card-subtitle>{{ trip.slug }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions>
+            <a mat-button [routerLink]="['/trips', trip.slug]" routerLinkActive="router-link-active" >SHOW</a>
+        </mat-card-actions>
+    </mat-card>
+</div>
