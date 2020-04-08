@@ -7,6 +7,7 @@ from .models import Trip
 class TripAdmin(admin.ModelAdmin):
     list_display = [
         'name',
+        'slug',
         'date_from',
         'date_to',
         'duration',

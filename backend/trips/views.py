@@ -10,3 +10,4 @@ class TripViewSet(viewsets.ModelViewSet):
     """
     queryset = Trip.objects.all()
     serializer_class = TripSerializer
+    lookup_field = 'slug'

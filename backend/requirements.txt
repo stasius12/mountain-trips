@@ -4,3 +4,6 @@ psycopg2
 flake8
 django-autoslug
 django-froala-editor
+django-cors-headers
+django-allauth
+django-rest-auth

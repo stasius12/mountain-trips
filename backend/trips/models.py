@@ -3,7 +3,6 @@ from datetime import date, timedelta
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from autoslug import AutoSlugField
 from froala_editor.fields import FroalaField
 
 
@@ -20,9 +19,8 @@ class Trip(models.Model):
         _("Created at"),
         auto_now_add=True,
     )
-    slug = AutoSlugField(
-        _("Slug"),
-        populate_from='name',
+    slug = models.SlugField(
+        unique=True,
     )
     date_from = models.DateField(
         _("From date"),
