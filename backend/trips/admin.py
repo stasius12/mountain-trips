@@ -11,7 +11,7 @@ class TripAdmin(admin.ModelAdmin):
         'date_from',
         'date_to',
         'duration',
-        'participant_count'
+        'participant_count',
     ]
 
     def duration(self, obj):

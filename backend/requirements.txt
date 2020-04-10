@@ -7,3 +7,5 @@ django-froala-editor
 django-cors-headers
 django-allauth
 django-rest-auth
+pytest
+pytest-django
