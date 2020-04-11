@@ -6,8 +6,8 @@ from rest_framework.test import APIClient
 
 @pytest.fixture
 def create_user(db, django_user_model):
-    """ Fixture returning method to create user
-        It is possible than to add some custom kwargs
+    """ Fixture returning method to create user.
+    It is possible than to add some custom kwargs
     """
     def make_user(**kwargs):
         kwargs['password'] = 'password'
