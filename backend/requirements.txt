@@ -9,3 +9,7 @@ django-allauth
 django-rest-auth
 pytest
 pytest-django
+cryptography
+drf-jwt
+pyjwt
+requests

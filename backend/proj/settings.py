@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'froala_editor',
     'rest_framework',
     'rest_framework.authtoken',
+    'rest_framework_jwt.blacklist',
     'rest_auth',
     'rest_auth.registration',
     'allauth',
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.RemoteUserMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -133,6 +135,12 @@ STATIC_URL = '/static/'
 SITE_ID = 1
 
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'django.contrib.auth.backends.RemoteUserBackend',
+]
+
+
 # django-cors-headers
 
 CORS_ORIGIN_WHITELIST = [
@@ -148,6 +156,22 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-       'rest_framework.authentication.TokenAuthentication',
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
     ),
+}
+
+
+# drf-jwt (https://github.com/Styria-Digital/django-rest-framework-jwt/)
+
+JWT_AUTH = {
+    'JWT_PAYLOAD_GET_USERNAME_HANDLER':
+        'userprofile.utils.jwt_get_username_from_payload_handler',
+    'JWT_DECODE_HANDLER':
+        'userprofile.utils.jwt_decode_token',
+    'JWT_ALGORITHM': 'RS256',
+    'JWT_AUDIENCE': 'https://mountain-trips.eu.auth0.com/api/v2/',
+    'JWT_ISSUER': 'https://mountain-trips.eu.auth0.com/',
+    'JWT_AUTH_HEADER_PREFIX': 'Bearer',
 }
