@@ -1,4 +1,4 @@
-from userprofile.models import UserProfile, Participant
+from userprofile.models import UserProfile
 
 
 def test_userprofile_created(create_user):
