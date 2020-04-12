@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { ApiService } from '../../services/api.service';
+import { ApiService } from '../../services/api/api.service';
 import { Trip } from '../../trip';
 
 @Component({

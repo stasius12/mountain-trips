@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
-import { Trip } from '../trip';
+import { Trip } from '../../trip';
 
 
 @Injectable({

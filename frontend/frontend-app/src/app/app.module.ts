@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './modules/app-routing/app-routing.module';
@@ -7,6 +7,8 @@ import { AppMaterialModule } from './modules/app-material/app-material.module';
 import { AppComponent } from './app.component';
 import { TripListComponent } from './components/trip-list/trip-list.component';
 import { TripDetailComponent } from './components/trip-detail/trip-detail.component';
+import { CallbackComponent } from './components/callback/callback.component';
+import { TokenInterceptor } from './services/auth/token.interceptor';
 
 
 @NgModule({
@@ -14,6 +16,7 @@ import { TripDetailComponent } from './components/trip-detail/trip-detail.compon
     AppComponent,
     TripListComponent,
     TripDetailComponent,
+    CallbackComponent,
   ],
   imports: [
     BrowserModule,
@@ -21,7 +24,13 @@ import { TripDetailComponent } from './components/trip-detail/trip-detail.compon
     AppRoutingModule,
     AppMaterialModule,    
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

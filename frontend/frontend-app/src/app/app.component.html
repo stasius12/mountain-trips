@@ -1,5 +1,11 @@
-<mat-toolbar color="primary">
-    <a mat-raised-button routerLink="/">Mountain Trips</a>
+<mat-toolbar color="primary" class="d-flex">
+  <a *ngIf="auth.isLoggedIn" mat-raised-button routerLink="/trips">Mountain Trips</a>
+  <a
+    class="ml-auto"
+    *ngIf="!auth.isLoggedIn"
+    mat-button (click)="auth.login()"
+  >Log In</a>
+  <a class="ml-auto" *ngIf="auth.isLoggedIn" mat-button (click)="auth.logout()">Log Out</a>
 </mat-toolbar>
 
 <router-outlet></router-outlet>
