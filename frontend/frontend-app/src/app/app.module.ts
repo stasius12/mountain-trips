@@ -1,14 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './modules/app-routing/app-routing.module';
 import { AppMaterialModule } from './modules/app-material/app-material.module';
+import { TokenInterceptor } from './services/auth/token.interceptor';
+
 import { AppComponent } from './app.component';
+import { CallbackComponent } from './components/callback/callback.component';
 import { TripListComponent } from './components/trip-list/trip-list.component';
 import { TripDetailComponent } from './components/trip-detail/trip-detail.component';
-import { CallbackComponent } from './components/callback/callback.component';
-import { TokenInterceptor } from './services/auth/token.interceptor';
+import { TripCreateComponent } from './components/trip-create/trip-create.component';
 
 
 @NgModule({
@@ -17,12 +20,14 @@ import { TokenInterceptor } from './services/auth/token.interceptor';
     TripListComponent,
     TripDetailComponent,
     CallbackComponent,
+    TripCreateComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    AppMaterialModule,    
+    AppMaterialModule,
+    ReactiveFormsModule,
   ],
   providers: [
     {

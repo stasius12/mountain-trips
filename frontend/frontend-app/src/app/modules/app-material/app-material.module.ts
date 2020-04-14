@@ -34,6 +34,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTreeModule } from '@angular/material/tree';
+import { MatNativeDateModule } from '@angular/material/core';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 
 
 
@@ -74,6 +76,8 @@ import { MatTreeModule } from '@angular/material/tree';
     MatSortModule,
     MatPaginatorModule,
     MatTreeModule,
+    MatNativeDateModule,
+    ClipboardModule,
   ],
   exports: [
     BrowserAnimationsModule,
@@ -109,6 +113,8 @@ import { MatTreeModule } from '@angular/material/tree';
     MatSortModule,
     MatPaginatorModule,
     MatTreeModule,
+    MatNativeDateModule,
+    ClipboardModule,
   ]
  })
 export class AppMaterialModule {   }

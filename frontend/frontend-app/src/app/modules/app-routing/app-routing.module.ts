@@ -3,30 +3,39 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AuthGuard } from '../../services/auth/auth.guard';
 
+import { CallbackComponent } from '../../components/callback/callback.component';
 import { TripListComponent } from '../../components/trip-list/trip-list.component';
 import { TripDetailComponent } from '../../components/trip-detail/trip-detail.component';
-import { CallbackComponent } from '../../components/callback/callback.component';
+import { TripCreateComponent } from '../../components/trip-create/trip-create.component';
 
 
 const routes: Routes = [
   {
-    path: 'trips',
+    path: 'callback',
+    component: CallbackComponent
+  },
+  {
+    path: 't',
     component: TripListComponent,
     canActivate: [ AuthGuard ]
   },
   {
-    path: 'trips/:tripSlug',
+    path: ':tripSlug',
     component: TripDetailComponent,
     canActivate: [ AuthGuard ]
   },
   {
-    path: 'callback',
-    component: CallbackComponent
+    path: 't/create',
+    component: TripCreateComponent,
+    canActivate: [ AuthGuard ]
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(
+    routes,
+    { enableTracing: true }
+  )],
   exports: [RouterModule],
   providers: [AuthGuard]
 })
