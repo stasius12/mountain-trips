@@ -24,4 +24,17 @@ export class TripListComponent implements OnInit {
     this.trips$ = this.apiService.getTrips()
   }
 
+  public deleteTrip(tripSlug) {
+    this.apiService.deleteTrip(tripSlug)
+      .subscribe(
+        (response) => {
+          console.log(response);
+          this.getTrips();
+        }
+      )
+  }
+
+  getTripUrl(tripSlug) {
+    return `http://localhost:4200/${tripSlug}/`;
+  }
 }

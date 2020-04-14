@@ -91,8 +91,7 @@ export class AuthService {
   }
 
   isTokenSet(): boolean {
-    const token = this.getAccessToken();
-    console.log(token);
+    const token = this.getAccessToken();    
     return token !== undefined && token !== null && token !== '';
   }
 

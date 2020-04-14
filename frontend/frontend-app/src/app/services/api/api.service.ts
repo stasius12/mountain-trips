@@ -9,7 +9,7 @@ import { Trip } from '../../trip';
   providedIn: 'root'
 })
 export class ApiService {
-  API_URL = 'http://localhost/'
+  API_URL = 'http://localhost/';
 
   constructor(
     private http: HttpClient
@@ -21,5 +21,13 @@ export class ApiService {
 
   public getTrip(slug: string) {
     return this.http.get<Trip>(`${this.API_URL}trips/${slug}/`);
+  }
+
+  public postTrip(trip: Trip) {
+    return this.http.post(`${this.API_URL}trips/`, trip);
+  }
+
+  public deleteTrip(slug: string) {
+    return this.http.delete(`${this.API_URL}trips/${slug}/`);
   }
 }

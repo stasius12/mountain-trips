@@ -1,11 +1,24 @@
-<div *ngFor="let trip of trips$ | async" style="margin: 20px;">
-    <mat-card>
+<div class="container-fluid">
+  <div class="row">
+    <div *ngFor="let trip of trips$ | async" class="col-md-4 p-3">      
+      <mat-card class="w-100">
         <mat-card-header>
-            <mat-card-title>{{ trip.name }}</mat-card-title>
-            <mat-card-subtitle>{{ trip.slug }}</mat-card-subtitle>
+          <mat-card-title>{{ trip.name }}</mat-card-title>
+          <mat-card-subtitle>
+            {{ trip.slug }}
+            <button
+              mat-icon-button
+              [cdkCopyToClipboard]="getTripUrl(trip.slug)"
+              style="outline: none;">
+              <i class="far fa-clone"></i>
+            </button>
+          </mat-card-subtitle>
         </mat-card-header>
         <mat-card-actions>
-            <a mat-button [routerLink]="['/trips', trip.slug]" routerLinkActive="router-link-active" >SHOW</a>
+          <a mat-button [routerLink]="['/', trip.slug]" routerLinkActive="router-link-active" >SHOW</a>
+          <button mat-button (click)="deleteTrip(trip.slug)">DELETE</button>
         </mat-card-actions>
-    </mat-card>
+      </mat-card>      
+    </div>
+  </div>
 </div>
