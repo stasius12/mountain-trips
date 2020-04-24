@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api/api.service';
 import { FormBuilder, Validators, ValidatorFn, FormGroup, FormArray } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 
 @Component({
@@ -24,6 +25,7 @@ export class TripCreateComponent implements OnInit {
   constructor(
     private apiService: ApiService,
     private formBuilder: FormBuilder,
+    private auth: AuthService,
   ) { }
 
   ngOnInit(): void {

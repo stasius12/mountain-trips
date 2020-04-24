@@ -8,7 +8,7 @@ export const environment = {
     clientID: 'zV61crhZr78fpCSj8ROPJE2XVdyPIVCp',
     domain: 'mountain-trips.eu.auth0.com',
     audience: 'https://mountain-trips.eu.auth0.com/api/v2/',
-    auth0RedirectUri: 'http://localhost:4200/callback/',
+    auth0RedirectUri: 'http://localhost:4200/',
     auth0ReturnTo: 'http://localhost:4200/',
     scope: 'openid profile'
   }

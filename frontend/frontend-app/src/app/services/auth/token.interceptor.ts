@@ -7,7 +7,8 @@ import {
 } from '@angular/common/http';
 
 import { AuthService } from './auth.service';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { mergeMap, catchError } from 'rxjs/operators';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
@@ -20,12 +21,16 @@ export class TokenInterceptor implements HttpInterceptor {
         request: HttpRequest<any>,
         next: HttpHandler
     ): Observable<HttpEvent<any>> {
-        request = request.clone({
-            setHeaders: {
-                Authorization: `Bearer ${this.auth.getAccessToken()}`
-            }
-        });
-        
-        return next.handle(request);
+        return this.auth.getTokenSilently$().pipe(
+            mergeMap(token => {
+                const tokenReq = request.clone({
+                    setHeaders: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+                return next.handle(tokenReq);
+            }),
+            catchError(err => throwError(err))
+        );
     }
 }
