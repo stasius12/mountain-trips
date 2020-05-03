@@ -10,4 +10,5 @@ urlpatterns = [
     path('froala_editor/', include('froala_editor.urls')),
 
     path('', include('trips.urls')),
+    path('userprofile/', include('userprofile.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
