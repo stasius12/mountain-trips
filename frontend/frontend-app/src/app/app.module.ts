@@ -12,6 +12,7 @@ import { CallbackComponent } from './components/callback/callback.component';
 import { TripListComponent } from './components/trip-list/trip-list.component';
 import { TripDetailComponent } from './components/trip-detail/trip-detail.component';
 import { TripCreateComponent } from './components/trip-create/trip-create.component';
+import { SanitizeHtmlPipe } from  './sanitize-html.pipe';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { TripCreateComponent } from './components/trip-create/trip-create.compon
     TripDetailComponent,
     CallbackComponent,
     TripCreateComponent,
+    SanitizeHtmlPipe,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +30,9 @@ import { TripCreateComponent } from './components/trip-create/trip-create.compon
     AppRoutingModule,
     AppMaterialModule,
     ReactiveFormsModule,
+  ],
+  exports: [
+    SanitizeHtmlPipe,
   ],
   providers: [
     {
