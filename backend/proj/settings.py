@@ -31,13 +31,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'froala_editor',
     'rest_framework',
-    'rest_framework.authtoken',
     'rest_framework_jwt.blacklist',
-    'rest_auth',
-    'rest_auth.registration',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
 
     'trips',
     'userprofile',
